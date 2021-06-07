@@ -63,7 +63,7 @@ module.exports =
   }
 }
 ```
-Also, as you can see in the commands that manage quotes, make sure you're calling any modules you need in your file, otherwise your command will return an error.
+Also, as you can see in the commands that manage quotes, make sure you're calling `prereqs.json` and/or any modules you need in your file, otherwise your command will return an error.
 
 ### Final words
 I'll be sure to update this README as I see fit, because despite this bot being basically finished, I still like to add some quality-of-life shit to it once in a while. If you have any question or concerns, let me know on my [Twitter](https://twitter.com/defnotreal_) or friend me on Discord: defnotreal_#5123.
