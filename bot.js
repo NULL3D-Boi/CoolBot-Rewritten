@@ -24,11 +24,6 @@ function switchTopic() {
     console.log(`Changed the topic in ${channel.name} to ${string}`);
 };
 
-function restartBot() {
-    bot.destroy();
-    bot.login(prereqs.token);
-}
-
 bot.on("guildCreate", guild => {
     console.log("\x1b[32m",`* Joined guild: ${guild.name}`,"\x1b[0m");
 });
