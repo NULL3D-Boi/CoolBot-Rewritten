@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const cron = require("cron");
-const guildID = '809073266634915880';
 const bot = new Discord.Client();
 const prereqs = require("./prereqs.json");
 const quotes = prereqs.quotes;
