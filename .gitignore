@@ -1,3 +1,7 @@
 Twitter/
 node_modules/
 prereqs.json
+bot_test.js
+package-lock.json
+package.json
+prereqs-backup.json
