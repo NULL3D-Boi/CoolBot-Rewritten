@@ -48,6 +48,8 @@ Also, there's a function for changing a specific channel's topic to a random quo
 
 Keep in mind, though: this MAY become a publicly usable feature in the future. If this happens, this section will be removed from the README.
 
+``requests_channel`` is a variable meant to house the ID for the Discord channel all requests will be sent to by your bot. You might want to make sure this specific channel is something only you or anyone you trust should be able to see.
+
 ### Commands
 Commands should be pretty straightforward to add. Every usable command in CoolBot will be a part of this repository, but here's a template for a new command in case you need it:
 ```
