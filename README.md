@@ -44,7 +44,7 @@ Here's a template for your file:
 ```
 Of course, you're free to add to, remove to, and edit your JSON file as you see fit.
 
-Also, there's a function for changing a specific channel's topic to a random quote every night at midnight. You can either disable this by removing the `topicChange` Cron job in `bot.js` or you can configure it to a channel of your choice by changing the `main_channel` variable in `prereqs.js`, so long as your bot has permission to manage channels in the server your channel is in.
+Also, there's a function for changing a specific channel's topic to a random quote every night at midnight. You can either disable this by removing the `topicChange` Cron job in `bot.js` or you can configure it to a channel of your choice by changing the `main_channel` variable in `prereqs.json`, so long as your bot has permission to manage channels in the server your channel is in.
 
 Keep in mind, though: this MAY become a publicly usable feature in the future. If this happens, this section will be removed from the README.
 
