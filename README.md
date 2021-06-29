@@ -20,7 +20,6 @@ Finally, for something a little stupid: you may notice that CoolBot sometimes se
 ### Prerequisites
 The following NodeJS modules are REQUIRED to successfully run a CoolBot clone:
 * Discord.js
-* FS
 * Cron
 * hastebin-gen
 
