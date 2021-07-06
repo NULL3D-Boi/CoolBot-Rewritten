@@ -25,7 +25,7 @@ Also, the following Python modules are required to run the Twitter bot:
 * Tweepy
 * Advanced Python Scheduler
 
-##Getting started
+### Getting started
 
 A `prereqs.json` file has been provided to get your bot started. Simply copy the things needed into the file. Quotes are kept in, of course, the `quotes` folder, and support TXT files for simple string quotes, as well as multiple image and video filetypes.
 
