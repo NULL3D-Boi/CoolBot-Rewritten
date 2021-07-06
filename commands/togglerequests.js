@@ -28,7 +28,7 @@ module.exports =
             } break;
         }
 
-        fs.writeFileSync("/home/coolbot/Desktop/CoolBot/prereqs.json", JSON.stringify(prereqs, null, 2), (err) => {
+        fs.writeFileSync("/root/coolbot/prereqs.json", JSON.stringify(prereqs, null, 2), (err) => {
             if (err) console.error(err);
         });
     },

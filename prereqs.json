@@ -1,0 +1,11 @@
+{
+  "token": "",
+  "owner_id": "",
+  "prefix": "+",
+  "guilds": {
+    "main_channel": "",
+    "requests_channel": "",
+    "log_channel": ""
+  },
+  "allowRequests": true
+}

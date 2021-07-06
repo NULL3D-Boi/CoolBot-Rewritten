@@ -8,7 +8,6 @@ module.exports =
     cooldown: 1,
     execute(bot, msg, args)
     {
-        var rules = fs.readFileSync('/home/coolbot/Desktop/CoolBot/quoterules.txt', 'utf8');
-        msg.channel.send(rules);
+        msg.channel.send(fs.readFileSync('/root/coolbot/quoterules.txt', 'utf8'));
     },
 };
