@@ -13,42 +13,27 @@ First of all, let's get this out of the way: I don't care about what you do with
 It would also be greatly appreciated if you open-sourced your project, but this isn't required.
 All-in-all, just play fair!
 
-Also, the Twitter bot will not be a part of this repository because, despite it being a request from a few users, it was sort of an afterthought and is a completely different beast code-wise compared to the Discord bot.
-
 Finally, for something a little stupid: you may notice that CoolBot sometimes sends [this GIF](https://tenor.com/view/troll-face-rage-comics-trolled-meme-gif-19882304). Obviously, this is a dumb way of telling users they don't have access to owner-only commands. I really don't think this needed to be explained, but hey, better safe than sorry.
 
 ### Prerequisites
 The following NodeJS modules are REQUIRED to successfully run a CoolBot clone:
 * Discord.js
-* FS
 * Cron
 * hastebin-gen
 
-You'll also want to make a config file named `prereqs.json`. This file is essential, as it houses many important aspects of the bot, such as the bot token, some Discord IDs, the quotes array, so on and so forth.
+Also, the following Python modules are required to run the Twitter bot:
+* Tweepy
+* Advanced Python Scheduler
 
-Here's a template for your file:
-```
-{
-  "token": "",
-  "owner_id": "",
-  "prefix": "+",
-  "guilds": {
-    "main_channel": "",
-    "requests_channel": ""
-  },
-  "allowRequests": true,
-  "quotes": [
-    //Quotes will be added to this array when the addquote command is used on Discord
-  ]
-}
-```
-Of course, you're free to add to, remove to, and edit your JSON file as you see fit.
+A `prereqs.json` file has been provided to get your bot started. Simply copy the things needed into the file. Quotes are kept in, of course, the `quotes` folder, and support TXT files for simple string quotes, as well as multiple image and video filetypes.
 
 Also, there's a function for changing a specific channel's topic to a random quote every night at midnight. You can either disable this by removing the `topicChange` Cron job in `bot.js` or you can configure it to a channel of your choice by changing the `main_channel` variable in `prereqs.json`, so long as your bot has permission to manage channels in the server your channel is in.
 
 Keep in mind, though: this MAY become a publicly usable feature in the future. If this happens, this section will be removed from the README.
 
 ``requests_channel`` is a variable meant to house the ID for the Discord channel all requests will be sent to by your bot. You might want to make sure this specific channel is something only you or anyone you trust should be able to see.
+
+``log_channel`` is a variable meant for a logging feature currently in development that sends messages to a private channel when the bot does many things, such as creating and deleting guilds, catching errors, and sending quotes. I would recommend against using this for now.
 
 ### Commands
 Commands should be pretty straightforward to add. Every usable command in CoolBot will be a part of this repository, but here's a template for a new command in case you need it:
