@@ -25,6 +25,8 @@ Also, the following Python modules are required to run the Twitter bot:
 * Tweepy
 * Advanced Python Scheduler
 
+##Getting started
+
 A `prereqs.json` file has been provided to get your bot started. Simply copy the things needed into the file. Quotes are kept in, of course, the `quotes` folder, and support TXT files for simple string quotes, as well as multiple image and video filetypes.
 
 Also, there's a function for changing a specific channel's topic to a random quote every night at midnight. You can either disable this by removing the `topicChange` Cron job in `bot.js` or you can configure it to a channel of your choice by changing the `main_channel` variable in `prereqs.json`, so long as your bot has permission to manage channels in the server your channel is in.
