@@ -1,4 +1,4 @@
-import tweepy, time, json, os, random, os.path
+import tweepy, json, os, random, os.path
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 quotes = '/root/coolbot/quotes'
