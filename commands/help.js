@@ -12,6 +12,7 @@ module.exports =
 
         if (!args.length)
         {
+            data.push(`My name is CoolBot. I am currently in ${bot.guilds.cache.size} servers.`);
             data.push("__**CoolBot Commands**__");
             data.push(commands.map(command => command.name).join(' | '));
             data.push('**Use help followed by a command name for more info on a specific command.**');
