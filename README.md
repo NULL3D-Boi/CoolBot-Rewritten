@@ -3,7 +3,7 @@
 ### Synopsis
 CoolBot is a bot mainly used for Discord users to add quotes for the bot to use on command. The Discord bot also works in tandem with a Twitter bot, as quotes requested on Discord, if added to the bot, can also be displayed on Twitter.
 
-The bot accepts quotes in the form of text or images and videos through links to various social media sites and picks one quote at random to send into a Discord server with the command +quote, and users can request that a quote be added with the command +requestquote followed by their quote. Requested quotes are looked at by the bot's owner to decide if it should be added. A very brief set of rules for requesting quotes can be found by typing +quoterules.
+The bot accepts quotes in the form of text, images, and videos and picks one quote at random to send into a Discord server with the command `+quote`, and users can request that a quote be added with the command `+requestquote` followed by their quote. Requested quotes are looked at by the bot's owner to decide if it should be added. A very brief set of rules for requesting quotes can be found by typing `+quoterules`.
 
 Special thanks to [@Reaxt](https://github.com/Reaxt) for helping me wring out some kinks in the code while I was making this stupid thing. Without her assistance, I probably wouldn't have been able to put in some of the features CoolBot has now. Reaxt, you kick MAD ass!
 
@@ -20,6 +20,7 @@ The following NodeJS modules are REQUIRED to successfully run a CoolBot clone:
 * Discord.js
 * Cron
 * hastebin-gen
+* discord-buttons
 
 Also, the following Python modules are required to run the Twitter bot:
 * Tweepy
