@@ -25,6 +25,7 @@ module.exports =
         {
             msg.channel.send(fs.readFileSync(file, 'utf8'));
             console.log(`Quote sent to ${sChannel} in ${sGuild}`);
+            bot.channels.fetch(prereqs.guilds.log_channel).then(channel => channel.send(`📝 Quote sent to ${sChannel} in ${sGuild}`));
             return;
         }
 
