@@ -34,12 +34,10 @@ module.exports =
             }
         }
 
-        var channel = bot.channels.cache.get(prereqs.guilds.requests_channel);
-        var logChannel = bot.channels.cache.get(prereqs.log_channel);
         var cool_person = msg.author;
-        channel.send(`Requested by <@${cool_person.id}>: ${string}`);
+        bot.channels.fetch(prereqs.guilds.requests_channel).then(channel => channel.send(`Requested by <@${cool_person.id}>: ${string}`));
         console.log(`Quote ${string} was requested by ${cool_person.tag}`);
-        //logChannel.send(`📢 Quote ${string} was requested by ${cool_person.tag}`);
+        bot.channels.fetch(prereqs.guilds.log_channel).then(channel => channel.send(`📢 Quote ${string} was requested by ${cool_person.tag}`));
         msg.reply("quote requested successfully.");
     },
 };

@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const prereqs = JSON.parse(fs.readFileSync('/root/coolbot/prereqs.json', 'utf8'));
 const { MessageAttachment } = require('discord.js');
+const { brotliCompressSync } = require('zlib');
 const quotes = fs.readdirSync('/root/coolbot/quotes/');
 
 function randomQuote() { return quotes[Math.floor(Math.random() * quotes.length)]; }
@@ -32,5 +33,6 @@ module.exports =
         var atch = new MessageAttachment(file);
         msg.channel.send(atch);
         console.log(`Quote sent to ${sChannel} in ${sGuild}`);
+        bot.channels.fetch(prereqs.guilds.log_channel).then(channel => channel.send(`📝 Quote sent to ${sChannel} in ${sGuild}`));
     },
 };

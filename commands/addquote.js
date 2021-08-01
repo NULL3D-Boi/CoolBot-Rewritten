@@ -20,6 +20,7 @@ module.exports =
                 file.on('finish', function() {
                     file.close(cb);
                     console.log(`Media file was added to folder as ${fileName}`);
+                    bot.channels.fetch(prereqs.guilds.log_channel).then(channel => channel.send(`🎞️ Media file was added to folder as ${fileName}`));
                 });
             }).on('error', function(err) {
                 fs.unlink(dest);
@@ -57,6 +58,7 @@ module.exports =
             file.write(string);
             file.close();
             console.log(`Quote '${string}' was added to folder as ${fileName}`);
+            bot.channels.fetch(prereqs.guilds.log_channel).then(channel => channel.send(`🧾 Quote '${string}' was added to folder as ${fileName}`));
         }
         msg.reply("quote added successfully."); 
     },
