@@ -20,6 +20,7 @@ The following NodeJS modules are REQUIRED to successfully run a CoolBot clone:
 * Discord.js
 * Cron
 * hastebin-gen
+* discord-buttons
 
 Also, the following Python modules are required to run the Twitter bot:
 * Tweepy
