@@ -8,7 +8,6 @@ module.exports =
     name: 'requestquote',
     description: 'Request a quote to be added to CoolBot.',
     ownerOnly: false,
-    cooldown: 5,
     execute(bot, msg, args)
     {
         if (!prereqs.allowRequests) return msg.reply("I'm not accepting quote requests right now! Try again later!");

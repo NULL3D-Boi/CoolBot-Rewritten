@@ -12,7 +12,6 @@ module.exports =
     name: 'quote',
     description: 'Send a quote to a server.',
     ownerOnly: false,
-    cooldown: 3,
     execute(bot, msg, args)
     {
         var sChannel, sGuild, msg, fileType;

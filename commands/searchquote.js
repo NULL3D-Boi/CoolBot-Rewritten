@@ -9,7 +9,6 @@ module.exports =
     name: 'searchquote',
     description: 'Search for a quote using keywords.',
     ownerOnly: false,
-    cooldown: 5,
     execute(bot, msg, args)
     {
         var searchTerm = msg.content.slice(13).toLowerCase();

@@ -7,7 +7,6 @@ module.exports =
     name: 'quotecount',
     description: 'Get a count of how many quotes CoolBot can use.',
     ownerOnly: false,
-    cooldown: 1,
     execute(bot, msg, args)
     {
         var txtCount = 0;

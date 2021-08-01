@@ -55,7 +55,6 @@ module.exports =
 
         data.push(`**Name:** ${command.name}`);
         data.push(`**Description:** ${command.description}`);
-        //if (command.cooldown) data.push(`**Cooldown:** ${command.cooldown.toFixed(1)} second(s)`);
         if (command.ownerOnly) data.push('**OWNER ONLY**');
 
         msg.channel.send(data);
