@@ -2,18 +2,33 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const cron = require("cron");
 const path = require('path');
-const bot = new Discord.Client();
-const prereqs = JSON.parse(fs.readFileSync('/root/coolbot/prereqs.json', 'utf8'));
-const quotes = fs.readdirSync('/root/coolbot/quotes');
+const bot = new Discord.Client({ intents: [
+    Discord.GatewayIntentBits.Guilds,
+    Discord.GatewayIntentBits.GuildMessages,
+    Discord.GatewayIntentBits.GuildIntegrations,
+    Discord.GatewayIntentBits.MessageContent
+  ]})
+const prereqs = JSON.parse(fs.readFileSync('/CoolBot-Rewritten/prereqs.json', 'utf8'));
+const quotes = fs.readdirSync('/CoolBot-Rewritten/quotes');
 bot.commands = new Discord.Collection();
 bot.cooldowns = new Discord.Collection();
-require('discord-buttons')(bot);
+//require('discord-buttons')(bot);
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const foldersPath = path.join(__dirname, 'commands');
+const commandFolders = fs.readdirSync(foldersPath);
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	bot.commands.set(command.name, command);
+for (const folder of commandFolders) {
+	const commandsPath = path.join(foldersPath, folder);
+	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+	for (const file of commandFiles) {
+		const filePath = path.join(commandsPath, file);
+		const command = require(filePath);
+		if ('data' in command && 'execute' in command) {
+			bot.commands.set(command.data.name, command);
+		} else {
+			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+		}
+	}
 }
 
 function switchTopic()
@@ -83,6 +98,11 @@ bot.on('ready', async() => {
     bot.channels.fetch(prereqs.guilds.log_channel).then(channel => channel.send('✔️ Bot online'));
 
     //Slash commands
+    
+});
+
+process.on('unhandledRejection', error => {
+	console.error('Unhandled promise rejection:', error);
 });
 
 bot.on('message', msg => {
@@ -106,13 +126,35 @@ bot.on('clickButton', async (button) => {
     if (button.id === 'bRules')
     {
         button.message.delete();
-        button.message.channel.send(fs.readFileSync('/root/coolbot/quoterules.txt', 'utf8'));
+        button.message.channel.send(fs.readFileSync('/CoolBot-Rewritten/quoterules.txt', 'utf8'));
     }
     if (button.id === 'bTut')
     {
         button.setDisabled();
-        msg.channel.send(fs.readFileSync('/root/coolbot/quotehelp.txt', 'utf8'));
+        msg.channel.send(fs.readFileSync('/CoolBot-Rewritten/quotehelp.txt', 'utf8'));
     }
 })
 
 bot.login(prereqs.token);
+
+bot.on(Discord.Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	const command = interaction.client.commands.get(interaction.commandName);
+
+	if (!command) {
+		console.error(`No command matching ${interaction.commandName} was found.`);
+		return;
+	}
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(error);
+		if (interaction.replied || interaction.deferred) {
+			await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
+		} else {
+			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		}
+	}
+});
